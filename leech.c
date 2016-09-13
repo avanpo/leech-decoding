@@ -314,7 +314,7 @@ static void cmp_place_penalties(Pen *first, Pen *second, Pen *ap, Pen *bp)
  *
  * Timing and cache access are independent of input.
  */
-void cmp_swp_penalties(Pen *first, Pen *second, Pen *ap)
+static void cmp_swp_penalties(Pen *first, Pen *second, Pen *ap)
 {
 	int64_t snd = second->val;
 	int64_t a = ap->val;
@@ -342,7 +342,7 @@ void cmp_swp_penalties(Pen *first, Pen *second, Pen *ap)
  *
  * Timing and cache access are independent of input.
  */
-void cmp_bestof3_penalties(Pen *ap, Pen *bp, Pen *cp)
+static void cmp_bestof3_penalties(Pen *ap, Pen *bp, Pen *cp)
 {
 	int64_t b = bp->val;
 	int64_t c = cp->val;
@@ -364,7 +364,7 @@ void cmp_bestof3_penalties(Pen *ap, Pen *bp, Pen *cp)
  * timing and cache access pattern consistent manner.
  * May destroy the larger of the pair (incl. vector).
  */
-void cmp_mov_with_vector(uint64_t *ap, uint64_t *bp, uint32_t *a_arr,
+static void cmp_mov_with_vector(uint64_t *ap, uint64_t *bp, uint32_t *a_arr,
 		uint32_t *b_arr, int n_arr)
 {
 	int64_t a = *ap;
@@ -383,7 +383,7 @@ void cmp_mov_with_vector(uint64_t *ap, uint64_t *bp, uint32_t *a_arr,
  * point instead of vector. May destroy the larger of
  * the pair (incl. point).
  */
-void cmp_mov_with_pt(uint64_t *ap, uint64_t *bp, uint64_t *a_pt,
+static void cmp_mov_with_pt(uint64_t *ap, uint64_t *bp, uint64_t *a_pt,
 		uint64_t *b_pt, int n)
 {
 	int64_t a = *ap;
@@ -399,7 +399,7 @@ void cmp_mov_with_pt(uint64_t *ap, uint64_t *bp, uint64_t *a_pt,
  * inputs, excepting the minimum value and associated
  * array.
  */
-void min_in_array_with_vector(uint64_t *vals, uint32_t *arrs, int n, int n_arr)
+static void min_in_array_with_vector(uint64_t *vals, uint32_t *arrs, int n, int n_arr)
 {
 	int i;
 	for (i = n - 2; i >= 0; --i) {
@@ -412,7 +412,7 @@ void min_in_array_with_vector(uint64_t *vals, uint32_t *arrs, int n, int n_arr)
  * with the associated point. Destroys both inputs,
  * excepting the minimum metric and associated point.
  */
-void min_metric(uint64_t *metrics, uint64_t *pts, int n)
+static void min_metric(uint64_t *metrics, uint64_t *pts, int n)
 {
 	int i;
 	for (i = n - 2; i >= 0; --i) {
@@ -424,7 +424,7 @@ void min_metric(uint64_t *metrics, uint64_t *pts, int n)
  * (see comments above). This function will need to be
  * modified if another constellations is used.
  */
-void decode_subset(const uint32_t *t, int coset_h, int i, int j, int k, uint64_t *d, uint8_t *o)
+static void decode_subset(const uint32_t *t, int coset_h, int i, int j, int k, uint64_t *d, uint8_t *o)
 {
 	uint32_t offset[2][2] = {{0,0},{4,4}};
 	uint64_t distances[2];
@@ -756,7 +756,7 @@ static void decoder_Q24(Q24 *q, uint64_t *cv, uint64_t *d)
  * Leech quarter-lattice decoders.
  *  *t: pointer to target vector
  * *cv: pointer to outputted bits
- *  *d: pointer to outputted SEQ
+ *  *d: pointer to outputted SED
  */
 void decoder_L24(const uint32_t *t, uint64_t *cv, uint64_t *d)
 {

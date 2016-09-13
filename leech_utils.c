@@ -71,8 +71,9 @@ int cmpv(const uint32_t *a, const uint32_t *b)
 {
 	int i;
 	for (i = 0; i < 24; ++i) {
-		if (a[i] != b[i])
+		if (a[i] != b[i]) {
 			return 1;
+		}
 	}
 	return 0;
 }

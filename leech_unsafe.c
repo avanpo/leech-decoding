@@ -250,7 +250,7 @@ static void compute_vals(Q24 *q, int l, int c, int i1, int j1, int i2, int j2)
  * 12 are redundant. For constellations other than
  * 32-QAM, this function will need to be modified.
  */
-uint64_t output_bits(Q24 *q)
+static uint64_t output_bits(Q24 *q)
 {
 	uint64_t o;
 	int l;
