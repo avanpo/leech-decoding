@@ -4,6 +4,8 @@ The Leech lattice is a very remarkable lattice in 24 dimensions. Its density and
 
 This library aims to efficiently implement several different Leech lattice decoders.
 
+For a discussion of the original, cryptographically safe integer implementation, please see my thesis at the Cryptology ePrint [archive](https://eprint.iacr.org/2016/1050).
+
 ## Contents
 
 - *leech.h:* Header file containing constants and declarations of all integer decoders.
